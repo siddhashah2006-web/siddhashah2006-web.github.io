@@ -1,0 +1,171 @@
+/* Link pages for Forex with Fed, Fed Forex (YouTube) and Scrollvaanta.
+   Built on LittleLink (MIT, https://github.com/sethcottle/littlelink); brand kit from brooks-reel statics/kit.ts.
+   Two looks: .t-night (Forex with Fed, dark like the reels) and .t-paper (Scrollvaanta, light editorial). */
+
+:root {
+  --blue: #024CFF;
+  --gap: 14px;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 500;
+  line-height: 1.5;
+  background: var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.t-night {
+  color-scheme: dark;
+  --bg: radial-gradient(120% 70% at 50% 0%, #17306f 0%, #0b1638 48%, #050a1c 100%), #0b1638;
+  --text: #FFFFFF;
+  --muted: #AEB8D6;
+  --accent: #6E9BFF;
+  --card: rgba(255, 255, 255, .06);
+  --card-hover: rgba(255, 255, 255, .11);
+  --card-edge: rgba(255, 255, 255, .14);
+  --ring: rgba(255, 255, 255, .9);
+  --avatar-edge: rgba(255, 255, 255, .18);
+}
+
+.t-paper {
+  color-scheme: light;
+  --bg: linear-gradient(180deg, #FFFFFF 0%, #EEF2FA 100%), #F4F6FB;
+  --text: #0A0A0A;
+  --muted: #4A505E;
+  --accent: #024CFF;
+  --card: #FFFFFF;
+  --card-hover: #F2F5FD;
+  --card-edge: rgba(10, 20, 50, .12);
+  --ring: #024CFF;
+  --avatar-edge: rgba(10, 20, 50, .08);
+}
+
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 56px 16px 32px;
+  text-align: center;
+}
+
+.avatar {
+  display: block;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--avatar-edge), 0 18px 40px rgba(0, 0, 0, .22);
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+h1 em {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.t-paper h1 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-weight: 400;
+  font-size: 46px;
+  letter-spacing: -0.01em;
+}
+.t-paper h1 em {
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.tagline {
+  margin: 0 auto 32px;
+  max-width: 30ch;
+  font-size: 16px;
+  color: var(--muted);
+  text-wrap: balance;
+}
+.tagline em {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-size: 1.3em;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 64px;
+  padding: 12px 18px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  border: 1px solid var(--card-edge);
+  background: var(--card);
+  color: var(--text);
+  text-decoration: none;
+  text-align: left;
+  transition: background-color .15s ease, transform .15s ease;
+}
+.link:hover { background: var(--card-hover); }
+.link:active { transform: scale(.985); }
+.link:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+
+.link.primary {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #FFFFFF;
+  box-shadow: 0 14px 34px rgba(2, 76, 255, .35);
+}
+.link.primary:hover { background: #1F5FFF; }
+
+.link .text { display: flex; flex-direction: column; min-width: 0; }
+.link .title { font-weight: 700; font-size: 17px; line-height: 1.25; }
+.link .sub { font-size: 14px; line-height: 1.3; opacity: .78; margin-top: 2px; }
+
+/* Icons take the button's text colour (CSS mask over LittleLink's SVGs) */
+.icon {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  background: currentColor;
+  -webkit-mask: var(--i) center / contain no-repeat;
+  mask: var(--i) center / contain no-repeat;
+}
+.icon-img { flex: none; width: 22px; height: 22px; }
+
+.foot {
+  margin: 40px auto 0;
+  max-width: 34ch;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.foot p { margin: 0 0 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .link { transition: none; }
+  .link:active { transform: none; }
+}
